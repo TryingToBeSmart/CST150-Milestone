@@ -38,6 +38,9 @@
             this.priceLabel = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.quantityLabel = new System.Windows.Forms.Label();
+            this.nameErrorLabel = new System.Windows.Forms.Label();
+            this.priceErrorLabel = new System.Windows.Forms.Label();
+            this.quantityErrorLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // title
@@ -54,13 +57,15 @@
             // backButton
             // 
             this.backButton.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.backButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.backButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.backButton.Location = new System.Drawing.Point(534, 149);
             this.backButton.Name = "backButton";
             this.backButton.Size = new System.Drawing.Size(131, 78);
-            this.backButton.TabIndex = 1;
+            this.backButton.TabIndex = 4;
             this.backButton.Text = "Back";
             this.backButton.UseVisualStyleBackColor = false;
+            this.backButton.Click += new System.EventHandler(this.backButton_Click);
             // 
             // enterButton
             // 
@@ -69,17 +74,17 @@
             this.enterButton.Location = new System.Drawing.Point(116, 149);
             this.enterButton.Name = "enterButton";
             this.enterButton.Size = new System.Drawing.Size(131, 78);
-            this.enterButton.TabIndex = 1;
+            this.enterButton.TabIndex = 3;
             this.enterButton.Text = "Enter";
             this.enterButton.UseVisualStyleBackColor = false;
+            this.enterButton.Click += new System.EventHandler(this.enterButton_Click);
             // 
             // itemNameTextBox
             // 
             this.itemNameTextBox.Location = new System.Drawing.Point(116, 92);
             this.itemNameTextBox.Name = "itemNameTextBox";
             this.itemNameTextBox.Size = new System.Drawing.Size(179, 31);
-            this.itemNameTextBox.TabIndex = 3;
-            this.itemNameTextBox.Text = "Item Name";
+            this.itemNameTextBox.TabIndex = 0;
             this.itemNameTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // itemPriceTextBox
@@ -87,8 +92,7 @@
             this.itemPriceTextBox.Location = new System.Drawing.Point(301, 92);
             this.itemPriceTextBox.Name = "itemPriceTextBox";
             this.itemPriceTextBox.Size = new System.Drawing.Size(179, 31);
-            this.itemPriceTextBox.TabIndex = 3;
-            this.itemPriceTextBox.Text = "Item Price";
+            this.itemPriceTextBox.TabIndex = 1;
             this.itemPriceTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // itemQuantityTextBox
@@ -96,8 +100,7 @@
             this.itemQuantityTextBox.Location = new System.Drawing.Point(486, 92);
             this.itemQuantityTextBox.Name = "itemQuantityTextBox";
             this.itemQuantityTextBox.Size = new System.Drawing.Size(179, 31);
-            this.itemQuantityTextBox.TabIndex = 3;
-            this.itemQuantityTextBox.Text = "Item Quantity";
+            this.itemQuantityTextBox.TabIndex = 2;
             this.itemQuantityTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // nameLabel
@@ -139,12 +142,44 @@
             this.quantityLabel.Text = "Quantity";
             this.quantityLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // nameErrorLabel
+            // 
+            this.nameErrorLabel.ForeColor = System.Drawing.Color.Red;
+            this.nameErrorLabel.Location = new System.Drawing.Point(116, 122);
+            this.nameErrorLabel.Name = "nameErrorLabel";
+            this.nameErrorLabel.Size = new System.Drawing.Size(178, 25);
+            this.nameErrorLabel.TabIndex = 6;
+            this.nameErrorLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // priceErrorLabel
+            // 
+            this.priceErrorLabel.ForeColor = System.Drawing.Color.Red;
+            this.priceErrorLabel.Location = new System.Drawing.Point(302, 122);
+            this.priceErrorLabel.Name = "priceErrorLabel";
+            this.priceErrorLabel.Size = new System.Drawing.Size(178, 25);
+            this.priceErrorLabel.TabIndex = 6;
+            this.priceErrorLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // quantityErrorLabel
+            // 
+            this.quantityErrorLabel.ForeColor = System.Drawing.Color.Red;
+            this.quantityErrorLabel.Location = new System.Drawing.Point(487, 122);
+            this.quantityErrorLabel.Name = "quantityErrorLabel";
+            this.quantityErrorLabel.Size = new System.Drawing.Size(178, 25);
+            this.quantityErrorLabel.TabIndex = 6;
+            this.quantityErrorLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // EditItemForm
             // 
+            this.AcceptButton = this.enterButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.CancelButton = this.backButton;
             this.ClientSize = new System.Drawing.Size(784, 284);
+            this.Controls.Add(this.quantityErrorLabel);
+            this.Controls.Add(this.priceErrorLabel);
+            this.Controls.Add(this.nameErrorLabel);
             this.Controls.Add(this.quantityLabel);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.priceLabel);
@@ -178,5 +213,8 @@
         private System.Windows.Forms.Label priceLabel;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label quantityLabel;
+        private System.Windows.Forms.Label nameErrorLabel;
+        private System.Windows.Forms.Label priceErrorLabel;
+        private System.Windows.Forms.Label quantityErrorLabel;
     }
 }
