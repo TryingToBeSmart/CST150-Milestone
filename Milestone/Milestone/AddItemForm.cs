@@ -13,11 +13,14 @@ namespace Milestone
     public partial class AddItemForm : Form
     {
         private string itemName;
-        private decimal itemPrice;
+        private double itemPrice;
         private int itemQuantity;
+        MainInventoryForm mainInventoryForm;
+        Item newItem;
 
-        public AddItemForm()
+        public AddItemForm(MainInventoryForm mainInventoryForm)
         {
+            this.mainInventoryForm = mainInventoryForm;
             InitializeComponent();
         }
 
@@ -29,7 +32,7 @@ namespace Milestone
                 itemName = itemNameTextBox.Text;
 
                 //get price from text box
-                if (decimal.TryParse(itemPriceTextBox.Text, out itemPrice))
+                if (double.TryParse(itemPriceTextBox.Text, out itemPrice))
                 {
                     priceErrorLabel.Text = "";//clear error
 
@@ -38,8 +41,28 @@ namespace Milestone
                     {
                         //all input is correct
                         quantityErrorLabel.Text = "";//clear error
-                        MessageBox.Show("Item Edited: " + itemName + ", " +
-                        itemPrice.ToString("c") + ", " + itemQuantity.ToString());
+                    
+                        //create new item
+                        newItem = new Item(itemName, itemPrice, itemQuantity);
+
+                        //send new item to main inventory form list box
+                        mainInventoryForm.AddNewItem(newItem);
+
+                        //automatically select the first item
+                        mainInventoryForm.selectTopItem();
+
+                        //display in message box
+                        MessageBox.Show("Item Added: " + itemName + ", " +
+                            itemPrice.ToString("c") + ", " + itemQuantity.ToString());
+
+                        //clear text boxes
+                        itemNameTextBox.Text = "";
+                        itemPriceTextBox.Text = "";
+                        itemQuantityTextBox.Text = "";
+
+                        //send curser to name text box
+                        itemNameTextBox.Select();
+
                     }
 
                     //else display quantity error
