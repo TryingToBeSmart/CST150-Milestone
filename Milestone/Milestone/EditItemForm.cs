@@ -8,30 +8,29 @@ namespace Milestone
         private string itemName;
         private double itemPrice;
         private int itemQuantity;
-        private MainInventoryForm mainInventoryForm;
+        private InventoryManager inventoryManager;
         private Item item;
-
-        public Item Item { get => item; set => item = value; }
 
         //constructor used to gather info from the mainInventoryForm that called it
         //to get selected Item info
-        public EditItemForm(MainInventoryForm mainInventoryForm)
+        public EditItemForm(InventoryManager inventoryManager, Item item)
         {
-            this.mainInventoryForm = mainInventoryForm;
             InitializeComponent();
+            this.inventoryManager = inventoryManager;
+            this.item = item;
         }
 
         //loads text box info and sets this.item info from the
         //Item that was selected in the MainInventoryForm
         private void EditItemForm_Load(object sender, EventArgs e)
         {
-            itemNameTextBox.Text = this.mainInventoryForm.Transfer.Name;
-            itemPriceTextBox.Text = this.mainInventoryForm.Transfer.Price.ToString();
-            itemQuantityTextBox.Text = this.mainInventoryForm.Transfer.Quantity.ToString();
-            this.item.ItemId = this.mainInventoryForm.Transfer.ItemId;
-            this.item.Name = this.mainInventoryForm.Transfer.Name;
-            this.item.Price = this.mainInventoryForm.Transfer.Price;
-            this.item.Quantity = this.mainInventoryForm.Transfer.Quantity;
+            itemNameTextBox.Text = this.item.Name;
+            itemPriceTextBox.Text = this.item.Price.ToString();
+            itemQuantityTextBox.Text = this.item.Quantity.ToString();
+            //this.item.ItemId = this.item.ItemId;
+            //this.item.Name = this.item.Name;
+            //this.item.Price = this.item.Price;
+            //this.item.Quantity = this.item.Quantity;
         }
 
         private void enterButton_Click(object sender, EventArgs e)
@@ -53,14 +52,8 @@ namespace Milestone
                         //all input is correct
                         quantityErrorLabel.Text = "";//clear error
 
-                        //edit item in maininventoryform
-                        //Correctly updates the Item Object, but
-                        //Doesn't update the text info in the list box even though the Item object info is changed
-                        //https://stackoverflow.com/questions/26275462/listbox-selecteditem-edit-from-another-form
-                        mainInventoryForm.Transfer.Name = itemName;
-                        mainInventoryForm.Transfer.Price = itemPrice;
-                        mainInventoryForm.Transfer.Quantity = itemQuantity;
-                        mainInventoryForm.EditSelectedItem(item);
+                        //editItem method, send the original item and the changes to be made
+                        inventoryManager.EditItem(item, itemName, itemPrice, itemQuantity);
 
                         //display change in message box
                         MessageBox.Show("Item Edited: " + itemName + ", " +

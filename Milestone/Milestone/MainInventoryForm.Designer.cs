@@ -32,7 +32,7 @@
             this.addItemButton = new System.Windows.Forms.Button();
             this.editItemButton = new System.Windows.Forms.Button();
             this.reorderItemButton = new System.Windows.Forms.Button();
-            this.inventoryList = new System.Windows.Forms.ListBox();
+            this.inventoryListBox = new System.Windows.Forms.ListBox();
             this.sortAZButton = new System.Windows.Forms.Button();
             this.sortPriceButton = new System.Windows.Forms.Button();
             this.sortQuantityButton = new System.Windows.Forms.Button();
@@ -88,20 +88,21 @@
             this.reorderItemButton.TabIndex = 6;
             this.reorderItemButton.Text = "Order";
             this.reorderItemButton.UseVisualStyleBackColor = false;
+            this.reorderItemButton.Click += new System.EventHandler(this.reorderItemButton_Click);
             // 
-            // inventoryList
+            // inventoryListBox
             // 
-            this.inventoryList.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.inventoryList.ColumnWidth = 20;
-            this.inventoryList.FormattingEnabled = true;
-            this.inventoryList.HorizontalScrollbar = true;
-            this.inventoryList.ItemHeight = 25;
-            this.inventoryList.Location = new System.Drawing.Point(101, 117);
-            this.inventoryList.Name = "inventoryList";
-            this.inventoryList.ScrollAlwaysVisible = true;
-            this.inventoryList.Size = new System.Drawing.Size(583, 404);
-            this.inventoryList.TabIndex = 5;
-            this.inventoryList.Tag = "";
+            this.inventoryListBox.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.inventoryListBox.ColumnWidth = 20;
+            this.inventoryListBox.FormattingEnabled = true;
+            this.inventoryListBox.HorizontalScrollbar = true;
+            this.inventoryListBox.ItemHeight = 25;
+            this.inventoryListBox.Location = new System.Drawing.Point(101, 117);
+            this.inventoryListBox.Name = "inventoryListBox";
+            this.inventoryListBox.ScrollAlwaysVisible = true;
+            this.inventoryListBox.Size = new System.Drawing.Size(583, 404);
+            this.inventoryListBox.TabIndex = 5;
+            this.inventoryListBox.Tag = "";
             // 
             // sortAZButton
             // 
@@ -112,6 +113,7 @@
             this.sortAZButton.TabIndex = 2;
             this.sortAZButton.Text = "Sort A-Z";
             this.sortAZButton.UseVisualStyleBackColor = false;
+            this.sortAZButton.Click += new System.EventHandler(this.sortAZButton_Click);
             // 
             // sortPriceButton
             // 
@@ -122,6 +124,7 @@
             this.sortPriceButton.TabIndex = 3;
             this.sortPriceButton.Text = "Sort Price";
             this.sortPriceButton.UseVisualStyleBackColor = false;
+            this.sortPriceButton.Click += new System.EventHandler(this.sortPriceButton_Click);
             // 
             // sortQuantityButton
             // 
@@ -132,6 +135,7 @@
             this.sortQuantityButton.TabIndex = 4;
             this.sortQuantityButton.Text = "Sort Quantity";
             this.sortQuantityButton.UseVisualStyleBackColor = false;
+            this.sortQuantityButton.Click += new System.EventHandler(this.sortQuantityButton_Click);
             // 
             // searchTextBox
             // 
@@ -139,6 +143,7 @@
             this.searchTextBox.Name = "searchTextBox";
             this.searchTextBox.Size = new System.Drawing.Size(460, 31);
             this.searchTextBox.TabIndex = 0;
+            this.searchTextBox.TextChanged += new System.EventHandler(this.searchTextBox_TextChanged);
             // 
             // searchButton
             // 
@@ -149,6 +154,7 @@
             this.searchButton.TabIndex = 1;
             this.searchButton.Text = "Search";
             this.searchButton.UseVisualStyleBackColor = false;
+            this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
             // 
             // removeItemButton
             // 
@@ -184,6 +190,7 @@
             this.sortIDButton.TabIndex = 11;
             this.sortIDButton.Text = "Sort ID";
             this.sortIDButton.UseVisualStyleBackColor = false;
+            this.sortIDButton.Click += new System.EventHandler(this.sortIDButton_Click);
             // 
             // MainInventoryForm
             // 
@@ -199,7 +206,7 @@
             this.Controls.Add(this.sortQuantityButton);
             this.Controls.Add(this.sortPriceButton);
             this.Controls.Add(this.sortAZButton);
-            this.Controls.Add(this.inventoryList);
+            this.Controls.Add(this.inventoryListBox);
             this.Controls.Add(this.exitButton);
             this.Controls.Add(this.reorderItemButton);
             this.Controls.Add(this.addItemButton);
@@ -222,7 +229,7 @@
         private System.Windows.Forms.Button addItemButton;
         private System.Windows.Forms.Button editItemButton;
         private System.Windows.Forms.Button reorderItemButton;
-        private System.Windows.Forms.ListBox inventoryList;
+        private System.Windows.Forms.ListBox inventoryListBox;
         private System.Windows.Forms.Button sortAZButton;
         private System.Windows.Forms.Button sortPriceButton;
         private System.Windows.Forms.Button sortQuantityButton;

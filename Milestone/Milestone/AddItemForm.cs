@@ -15,12 +15,12 @@ namespace Milestone
         private string itemName;
         private double itemPrice;
         private int itemQuantity;
-        MainInventoryForm mainInventoryForm;
+        private InventoryManager inventoryManager;
         Item newItem;
 
-        public AddItemForm(MainInventoryForm mainInventoryForm)
+        public AddItemForm(InventoryManager inventoryManager)
         {
-            this.mainInventoryForm = mainInventoryForm;
+            this.inventoryManager = inventoryManager;
             InitializeComponent();
         }
 
@@ -46,10 +46,7 @@ namespace Milestone
                         newItem = new Item(itemName, itemPrice, itemQuantity);
 
                         //send new item to main inventory form list box
-                        mainInventoryForm.AddNewItem(newItem);
-
-                        //automatically select the first item
-                        mainInventoryForm.selectTopItem();
+                        inventoryManager.AddNewItem(newItem);
 
                         //display in message box
                         MessageBox.Show("Item Added: " + itemName + ", " +
