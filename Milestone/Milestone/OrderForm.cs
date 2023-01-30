@@ -40,7 +40,7 @@ namespace Milestone
             }
             else
             {
-                MessageBox.Show("Enter a number");
+                MessageBox.Show("Incorrect Input");
             }
         }
     }
