@@ -1,5 +1,10 @@
 # CST-150 Milestone Project
 
+UPDATE 2023/1/29
+Milestone 3
+Added InventoryManager class, implimented sorting, implimented search.
+When I updated the option for the Main form to wait for the DialogResult from the other forms, it made a more streamline option for adding and editing the Items.  However, it broke the Exception handling that I had in place to prevent incorrect input type.  Now, when there is an incorrect input type, the form just closes and returns to the main page.
+
 UPDATE 2023/1/15
 Milestone 2
 Added Item Class, populated Item objects into the list box.  Finished option to add a new item with the button.  Edit item works, but I could not figure out how to re-load the edited information into the list box after it was edited.  So, instead, I made the edit item option replace the selected item instead of just editing it.  Remove item works great.  
