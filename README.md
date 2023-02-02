@@ -1,6 +1,10 @@
 # CST-150 Milestone Project
 
 UPDATE 2023/1/29
+Milestone 4
+Fixed the exception handling when navagating between forms.  I learned how to adjust the DialogResult() to different results that the original calling form can understand.  So when everything is input correctly, the result is "OK" and then the Main form will continue, otherwise the Edit or Order forms will stay in front and will prompt the user to enter the correct type os input.
+
+UPDATE 2023/1/29
 Milestone 3
 Added InventoryManager class, implimented sorting, implimented search.
 When I updated the option for the Main form to wait for the DialogResult from the other forms, it made a more streamline option for adding and editing the Items.  However, it broke the Exception handling that I had in place to prevent incorrect input type.  Now, when there is an incorrect input type, the form just closes and returns to the main page.
