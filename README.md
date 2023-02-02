@@ -8,6 +8,7 @@ If I had more time, I would learn how to make the ListBox look nicer with differ
 UPDATE 2023/2/2
 Milestone 4
 Fixed the exception handling when navagating between forms.  I learned how to adjust the DialogResult() to different results that the original calling form can understand.  So when everything is input correctly, the result is "OK" and then the Main form will continue, otherwise the Edit or Order forms will stay in front and will prompt the user to enter the correct type os input.
+I would like to adjust the sort methods to no populate the entire list of items when there is text in the search box.
 
 UPDATE 2023/1/29
 Milestone 3
