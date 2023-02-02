@@ -39,7 +39,6 @@
             // enterButton
             // 
             this.enterButton.BackColor = System.Drawing.SystemColors.Highlight;
-            this.enterButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.enterButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.enterButton.Location = new System.Drawing.Point(116, 149);
             this.enterButton.Name = "enterButton";
@@ -112,7 +111,7 @@
             this.Controls.Add(this.backButton);
             this.Controls.Add(this.enterButton);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "OrderForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "OrderForm";

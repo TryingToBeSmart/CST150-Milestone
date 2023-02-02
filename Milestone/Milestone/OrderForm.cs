@@ -25,23 +25,30 @@ namespace Milestone
         //set title of the page with the item name
         private void OrderForm_Load(object sender, EventArgs e)
         {
-            title.Text = "Order " + item.Name;
+            title.Text = "Order " + item.name;
         }
 
         //add amount entered into the text box to the quantity
         private void enterButton_Click(object sender, EventArgs e)
         {
             int amount;
-
-            if (int.TryParse(quantityTextBox.Text, out amount))
+           // while (true)
             {
-                item.Quantity = item.Quantity += amount;
-                MessageBox.Show("Ordered " + amount);
+                if (int.TryParse(quantityTextBox.Text, out amount))
+                {
+                    item.quantity = item.quantity += amount;
+                    MessageBox.Show("Ordered " + amount);
+                    DialogResult = DialogResult.OK;
+                   // break;
+                }
+                else
+                {
+                    MessageBox.Show("Incorrect Input");
+                    quantityTextBox.Text = "";
+                    quantityTextBox.Select();
+                }
             }
-            else
-            {
-                MessageBox.Show("Incorrect Input");
-            }
+            
         }
     }
 }

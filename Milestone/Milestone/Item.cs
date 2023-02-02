@@ -11,10 +11,10 @@ namespace Milestone
     public class Item
     {
         private static int id = 100;//will increment after assignment
-        private int itemId;
-        private string name;
-        private double price;
-        private int quantity;
+        public int itemId { get; set; }
+        public string name { get; set; }
+        public double price { get; set; }
+        public int quantity { get; set; }
 
 
         public Item()
@@ -39,12 +39,6 @@ namespace Milestone
             this.price = price;
             this.quantity = quantity;
         }
-
-        //generated getters and setters with quick actions and refactoring
-        public global::System.Int32 ItemId { get => itemId; set => itemId = value; }
-        public global::System.String Name { get => name; set => name = value; }
-        public global::System.Double Price { get => price; set => price = value; }
-        public global::System.Int32 Quantity { get => quantity; set => quantity = value; }
 
         //defines how to print out the item objects
         public override string ToString()

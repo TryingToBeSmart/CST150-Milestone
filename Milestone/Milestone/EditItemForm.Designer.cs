@@ -70,7 +70,6 @@
             // enterButton
             // 
             this.enterButton.BackColor = System.Drawing.SystemColors.Highlight;
-            this.enterButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.enterButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.enterButton.Location = new System.Drawing.Point(116, 149);
             this.enterButton.Name = "enterButton";
@@ -195,7 +194,7 @@
             this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "EditItemForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "S";
+            this.Text = "Edit";
             this.TopMost = true;
             this.Load += new System.EventHandler(this.EditItemForm_Load);
             this.ResumeLayout(false);

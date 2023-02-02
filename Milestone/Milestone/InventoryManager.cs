@@ -30,9 +30,9 @@ namespace Milestone
         public void EditItem(Item item, string name, double price, int quantity)
         {
             this.item = item;
-            item.Name = name;
-            item.Price = price;
-            item.Quantity = quantity;
+            item.name = name;
+            item.price = price;
+            item.quantity = quantity;
         }
 
         //get the item list
@@ -46,25 +46,25 @@ namespace Milestone
         //thanks to https://stackoverflow.com/questions/3309188/how-to-sort-a-listt-by-a-property-in-the-object
         public void SortName()
         {
-            itemList.Sort((x,y) => x.Name.CompareTo(y.Name));
+            itemList.Sort((x,y) => x.name.CompareTo(y.name));
             sortType = "name";
         }
 
         public void SortID()
         {
-            itemList.Sort((x, y) => x.ItemId.CompareTo(y.ItemId));
+            itemList.Sort((x, y) => x.itemId.CompareTo(y.itemId));
             sortType = "id";
         }
 
         public void SortPrice()
         {
-            itemList.Sort((x, y) => x.Price.CompareTo(y.Price));
+            itemList.Sort((x, y) => x.price.CompareTo(y.price));
             sortType = "price";
         }
 
         public void SortQuantity()
         {
-            itemList.Sort((x, y) => x.Quantity.CompareTo(y.Quantity));
+            itemList.Sort((x, y) => x.quantity.CompareTo(y.quantity));
             sortType = "quantity";
         }
         
@@ -85,22 +85,22 @@ namespace Milestone
         public void Restock(Item item, int quantity)
         {
             this.item = item;
-            item.Quantity = quantity;
+            item.quantity = quantity;
         }
 
         //look through Item info to find match(es)
         public List<Item> Search(string searchText)
         {
-            if(searchText == null || searchText.Equals(" ") || searchText.Equals("")) return itemList;//send the whole list
+            if(searchText == null || searchText.Equals(" ") || searchText.Equals("")) return itemList;//send the whole list because nothing to search for
             List<Item> searchList = new List<Item>();
             try
             {
                 foreach(Item item in itemList)
                 {
-                    if(item.ItemId.ToString().Contains(searchText.ToLower()) && !searchList.Contains(item)) searchList.Add(item);
-                    if(item.Name.ToLower().Contains(searchText.ToLower()) && !searchList.Contains(item)) searchList.Add(item);
-                    if(item.Price.ToString().Contains(searchText) && !searchList.Contains(item)) searchList.Add(item);
-                    if(item.Quantity.ToString().Contains(searchText) && !searchList.Contains(item)) searchList.Add(item);
+                    if(item.itemId.ToString().Contains(searchText.ToLower()) && !searchList.Contains(item)) searchList.Add(item);//search for id
+                    if(item.name.ToLower().Contains(searchText.ToLower()) && !searchList.Contains(item)) searchList.Add(item);//search for name
+                    if (item.price.ToString().Contains(searchText) && !searchList.Contains(item)) searchList.Add(item);//search for price
+                    if (item.quantity.ToString().Contains(searchText) && !searchList.Contains(item)) searchList.Add(item);//search for quantity
                 }
             }
             catch (Exception)

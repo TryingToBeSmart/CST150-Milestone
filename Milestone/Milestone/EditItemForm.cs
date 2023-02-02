@@ -24,13 +24,9 @@ namespace Milestone
         //Item that was selected in the MainInventoryForm
         private void EditItemForm_Load(object sender, EventArgs e)
         {
-            itemNameTextBox.Text = this.item.Name;
-            itemPriceTextBox.Text = this.item.Price.ToString();
-            itemQuantityTextBox.Text = this.item.Quantity.ToString();
-            //this.item.ItemId = this.item.ItemId;
-            //this.item.Name = this.item.Name;
-            //this.item.Price = this.item.Price;
-            //this.item.Quantity = this.item.Quantity;
+            itemNameTextBox.Text = this.item.name;
+            itemPriceTextBox.Text = this.item.price.ToString();
+            itemQuantityTextBox.Text = this.item.quantity.ToString();
         }
 
         private void enterButton_Click(object sender, EventArgs e)
@@ -58,7 +54,9 @@ namespace Milestone
                         //display change in message box
                         MessageBox.Show("Item Edited: " + itemName + ", " +
                         itemPrice.ToString("c") + ", " + itemQuantity.ToString());
-                        Close();
+                        
+                        //change the Dialog result
+                        DialogResult= DialogResult.OK;
                     }
 
                     //else display quantity error

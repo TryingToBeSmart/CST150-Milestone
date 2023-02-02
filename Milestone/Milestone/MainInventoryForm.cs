@@ -39,24 +39,20 @@ namespace Milestone
         {
             try
             {
-                inventoryListBox.SelectedIndex = 0;
+                inventoryListBox.SelectedIndex = 0;//select first item
             }
             catch (Exception)
             {
-                //do nothing
+                //do nothing if the list is empty
             }
         }
 
-        //add items to inventorylist box
-        public void AddNewItem(Item item)
+        //clear the list box contents and re-add them based on the sorted inventoryManager list
+        public void RefreshList()
         {
-            inventoryListBox.Items.Add(item);
-        }
-
-        //"edits" selected item by replaceing it with a new Item that is generated from the EditItemForm
-        public void EditSelectedItem(Item item)
-        {
-            inventoryListBox.Items[inventoryListBox.SelectedIndex] = new Item(item.ItemId, item.Name, item.Price, item.Quantity);
+            inventoryManager.AutoSort();
+            inventoryListBox.Items.Clear();
+            inventoryListBox.Items.AddRange(inventoryManager.Search(searchTextBox.Text).ToArray());//add the sorted list(with search text) back to the list box
         }
 
         //Opens the AddItemForm 
@@ -66,19 +62,11 @@ namespace Milestone
             //send inventoryManager object to the AddItemForm
             using (AddItemForm addItemForm = new AddItemForm(inventoryManager))
             {
-                if (addItemForm.ShowDialog() == System.Windows.Forms.DialogResult.Cancel)
+                if (addItemForm.ShowDialog() == System.Windows.Forms.DialogResult.Cancel)//back button selected
                 {
                     RefreshList();//when addItemForm is closed, refresh the list box
                 }
             }
-        }
-
-        //clear the list box contents and re-add them based on the sorted inventoryManager list
-        public void RefreshList()
-        {
-            inventoryManager.AutoSort();
-            inventoryListBox.Items.Clear();
-            inventoryListBox.Items.AddRange(inventoryManager.GetItems().ToArray());//add the sorted list back to the list box
         }
 
         //edits the current item selected in the item list
@@ -87,29 +75,34 @@ namespace Milestone
             //if item selected
             if (inventoryListBox.SelectedItems.Count > 0)
             {
-                using (EditItemForm editItemForm = new EditItemForm(inventoryManager, (Item)inventoryListBox.SelectedItem))
+                using (EditItemForm editItemForm = new EditItemForm(inventoryManager, (Item)inventoryListBox.SelectedItem))//open edit form with item selected
                 {
-                    if (editItemForm.ShowDialog() == System.Windows.Forms.DialogResult.Cancel)
+                    if (editItemForm.ShowDialog() == System.Windows.Forms.DialogResult.OK)//enter button selected
                     {
                         RefreshList();//when addItemForm is closed, refresh the list box
                     }
                 }
             }
-            else MessageBox.Show("Select Item To Edit");
+            else MessageBox.Show("Select Item To Edit");//no item selected
         }
 
         //Remove selected item
         private void removeItemButton_Click(object sender, EventArgs e)
         {
-            try
+            if (inventoryListBox.SelectedItems.Count > 0)//if item selected
             {
-                inventoryManager.RemoveItem((Item)inventoryListBox.SelectedItem);
-                RefreshList();
+                using (Remove remove = new Remove((Item)inventoryListBox.SelectedItem))//open remove form with item selected
+                {
+                    if (remove.ShowDialog() == System.Windows.Forms.DialogResult.OK)//yes button selected
+                    {
+                        inventoryManager.RemoveItem((Item)inventoryListBox.SelectedItem);//remove item
+                        RefreshList();
+                    }
+
+                }
             }
-            catch (Exception)
-            {
-                MessageBox.Show("Select Item To Remove");
-            }
+
+            else MessageBox.Show("Select Item To Remove");//no item selected
         }
 
         private void exitButton_Click(object sender, EventArgs e)
@@ -190,17 +183,31 @@ namespace Milestone
         private void reorderItemButton_Click(object sender, EventArgs e)
         {
             //if item selected
-            if (inventoryListBox.SelectedItems.Count > 0)
+            if (inventoryListBox.SelectedItems.Count > 0)//if item is selected
             {
-                using (OrderForm orderForm = new OrderForm(inventoryManager, (Item)inventoryListBox.SelectedItem))
+                using (OrderForm orderForm = new OrderForm(inventoryManager, (Item)inventoryListBox.SelectedItem))//new order form with item
                 {
-                    if (orderForm.ShowDialog() == System.Windows.Forms.DialogResult.Cancel)
+                    if (orderForm.ShowDialog() == System.Windows.Forms.DialogResult.OK)//if order form enter button is clicked
                     {
                         RefreshList();//when addItemForm is closed, refresh the list box
                     }
                 }
             }
-            else MessageBox.Show("Select Item To Order");
+            else MessageBox.Show("Select Item To Order");//no item selected
+        }
+
+        //add items to inventorylist box
+        //Not being used after implementing InventoryManager Class
+        public void AddNewItem(Item item)
+        {
+            inventoryListBox.Items.Add(item);
+        }
+
+        //"edits" selected item by replaceing it with a new Item that is generated from the EditItemForm
+        //Not being used after implementing InventoryManager Class
+        public void EditSelectedItem(Item item)
+        {
+            inventoryListBox.Items[inventoryListBox.SelectedIndex] = new Item(item.itemId, item.name, item.price, item.quantity);
         }
     }
 }

@@ -61,7 +61,7 @@
             this.addItemButton.Location = new System.Drawing.Point(479, 536);
             this.addItemButton.Name = "addItemButton";
             this.addItemButton.Size = new System.Drawing.Size(138, 75);
-            this.addItemButton.TabIndex = 9;
+            this.addItemButton.TabIndex = 10;
             this.addItemButton.Text = "Add";
             this.addItemButton.UseVisualStyleBackColor = false;
             this.addItemButton.Click += new System.EventHandler(this.addItemButton_Click);
@@ -73,7 +73,7 @@
             this.editItemButton.Location = new System.Drawing.Point(325, 536);
             this.editItemButton.Name = "editItemButton";
             this.editItemButton.Size = new System.Drawing.Size(138, 75);
-            this.editItemButton.TabIndex = 8;
+            this.editItemButton.TabIndex = 9;
             this.editItemButton.Text = "Edit";
             this.editItemButton.UseVisualStyleBackColor = false;
             this.editItemButton.Click += new System.EventHandler(this.editItemButton_Click);
@@ -85,7 +85,7 @@
             this.reorderItemButton.Location = new System.Drawing.Point(12, 536);
             this.reorderItemButton.Name = "reorderItemButton";
             this.reorderItemButton.Size = new System.Drawing.Size(138, 75);
-            this.reorderItemButton.TabIndex = 6;
+            this.reorderItemButton.TabIndex = 7;
             this.reorderItemButton.Text = "Order";
             this.reorderItemButton.UseVisualStyleBackColor = false;
             this.reorderItemButton.Click += new System.EventHandler(this.reorderItemButton_Click);
@@ -101,7 +101,7 @@
             this.inventoryListBox.Name = "inventoryListBox";
             this.inventoryListBox.ScrollAlwaysVisible = true;
             this.inventoryListBox.Size = new System.Drawing.Size(583, 404);
-            this.inventoryListBox.TabIndex = 5;
+            this.inventoryListBox.TabIndex = 6;
             this.inventoryListBox.Tag = "";
             // 
             // sortAZButton
@@ -110,7 +110,7 @@
             this.sortAZButton.Location = new System.Drawing.Point(246, 82);
             this.sortAZButton.Name = "sortAZButton";
             this.sortAZButton.Size = new System.Drawing.Size(145, 36);
-            this.sortAZButton.TabIndex = 2;
+            this.sortAZButton.TabIndex = 3;
             this.sortAZButton.Text = "Sort A-Z";
             this.sortAZButton.UseVisualStyleBackColor = false;
             this.sortAZButton.Click += new System.EventHandler(this.sortAZButton_Click);
@@ -121,7 +121,7 @@
             this.sortPriceButton.Location = new System.Drawing.Point(392, 82);
             this.sortPriceButton.Name = "sortPriceButton";
             this.sortPriceButton.Size = new System.Drawing.Size(145, 36);
-            this.sortPriceButton.TabIndex = 3;
+            this.sortPriceButton.TabIndex = 4;
             this.sortPriceButton.Text = "Sort Price";
             this.sortPriceButton.UseVisualStyleBackColor = false;
             this.sortPriceButton.Click += new System.EventHandler(this.sortPriceButton_Click);
@@ -132,7 +132,7 @@
             this.sortQuantityButton.Location = new System.Drawing.Point(538, 82);
             this.sortQuantityButton.Name = "sortQuantityButton";
             this.sortQuantityButton.Size = new System.Drawing.Size(145, 36);
-            this.sortQuantityButton.TabIndex = 4;
+            this.sortQuantityButton.TabIndex = 5;
             this.sortQuantityButton.Text = "Sort Quantity";
             this.sortQuantityButton.UseVisualStyleBackColor = false;
             this.sortQuantityButton.Click += new System.EventHandler(this.sortQuantityButton_Click);
@@ -163,7 +163,7 @@
             this.removeItemButton.Location = new System.Drawing.Point(168, 536);
             this.removeItemButton.Name = "removeItemButton";
             this.removeItemButton.Size = new System.Drawing.Size(138, 75);
-            this.removeItemButton.TabIndex = 7;
+            this.removeItemButton.TabIndex = 8;
             this.removeItemButton.Text = "Remove";
             this.removeItemButton.UseVisualStyleBackColor = false;
             this.removeItemButton.Click += new System.EventHandler(this.removeItemButton_Click);
@@ -176,7 +176,7 @@
             this.exitButton.Location = new System.Drawing.Point(634, 536);
             this.exitButton.Name = "exitButton";
             this.exitButton.Size = new System.Drawing.Size(138, 75);
-            this.exitButton.TabIndex = 10;
+            this.exitButton.TabIndex = 11;
             this.exitButton.Text = "Exit";
             this.exitButton.UseVisualStyleBackColor = false;
             this.exitButton.Click += new System.EventHandler(this.exitButton_Click);
@@ -187,7 +187,7 @@
             this.sortIDButton.Location = new System.Drawing.Point(100, 82);
             this.sortIDButton.Name = "sortIDButton";
             this.sortIDButton.Size = new System.Drawing.Size(145, 36);
-            this.sortIDButton.TabIndex = 11;
+            this.sortIDButton.TabIndex = 2;
             this.sortIDButton.Text = "Sort ID";
             this.sortIDButton.UseVisualStyleBackColor = false;
             this.sortIDButton.Click += new System.EventHandler(this.sortIDButton_Click);
