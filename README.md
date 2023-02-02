@@ -1,6 +1,11 @@
 # CST-150 Milestone Project
 
-UPDATE 2023/1/29
+UPDATE 2023/2/2
+Milestone 5
+Added an extra form for the Remove() method.  Now it prompts the user: "Are you sure you want to remove {item.name} 'Yes' or 'Cancel'.  Also, I adjusted the Refresh() method in the MainInventoryForm so that the list of items that are displayed are populated based on what is in the search text box.  Before this change, when any of the sort buttons were pushed, the entire list of items would be displayed and it would ignore what was inside of the search text box.  Now, it will only populate a list based on what is inside of the search text box.  
+If I had more time, I would learn how to make the ListBox look nicer with differnt columns and headings.
+
+UPDATE 2023/2/2
 Milestone 4
 Fixed the exception handling when navagating between forms.  I learned how to adjust the DialogResult() to different results that the original calling form can understand.  So when everything is input correctly, the result is "OK" and then the Main form will continue, otherwise the Edit or Order forms will stay in front and will prompt the user to enter the correct type os input.
 
